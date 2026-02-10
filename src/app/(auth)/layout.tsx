@@ -22,7 +22,7 @@ export default function AuthLayout({
                         </svg>
                     </div>
                     <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] font-heading">
-                        RoomieVibes
+                        RoomMateC
                     </h1>
                 </div>
                 {children}

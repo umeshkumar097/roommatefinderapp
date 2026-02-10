@@ -130,7 +130,7 @@ export function Footer() {
         <div className="border-t border-white/20 pt-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-purple-200 text-sm">
-              © 2024 RoomieVibes. All rights reserved. Made with{' '}
+              © 2024 RoomMateC. All rights reserved. Made with{' '}
               <Heart className="inline-block size-4 fill-pink-400 text-pink-400" /> for Gen Z
             </p>
             <div className="flex items-center gap-6 text-sm">

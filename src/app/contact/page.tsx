@@ -26,7 +26,7 @@ export default function ContactPage() {
                             Get in Touch
                         </h1>
                         <p className="text-slate-600 text-lg mb-8">
-                            Have questions about RoomieVibes? We're here to help you find your perfect match.
+                            Have questions about RoomMateC? We're here to help you find your perfect match.
                         </p>
 
                         <div className="space-y-6">

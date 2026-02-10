@@ -8,28 +8,28 @@ import { Providers } from "@/components/providers";
 
 export const metadata: Metadata = {
   title: {
-    default: "RoomieVibes - Find Your Perfect Roommate",
-    template: "%s | RoomieVibes",
+    default: "RoomMateC - Find Your Perfect Roommate",
+    template: "%s | RoomMateC",
   },
-  description: "RoomieVibes isn't just a roommate finder app—it's a lifestyle matchmaker designed for Gen Z. Swipe, match, and chat with verified roommates.",
-  keywords: ["roommate finder", "roomshare", "flatmate", "rooms for rent", "roomievibes", "roommate app"],
+  description: "RoomMateC isn't just a roommate finder app—it's a lifestyle matchmaker designed for Gen Z. Swipe, match, and chat with verified roommates.",
+  keywords: ["roommate finder", "roomshare", "flatmate", "rooms for rent", "roommatec", "roommate app"],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://roomievibes.com",
-    siteName: "RoomieVibes",
+    url: "https://roommatec.com",
+    siteName: "RoomMateC",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "RoomieVibes - Find Your Perfect Roommate",
+        alt: "RoomMateC - Find Your Perfect Roommate",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RoomieVibes - Find Your Perfect Roommate",
+    title: "RoomMateC - Find Your Perfect Roommate",
     description: "Swipe, match, and chat with verified roommates.",
     images: ["/og-image.png"],
   },

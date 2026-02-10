@@ -17,7 +17,7 @@ export function Header() {
                             <Sparkles className="size-6 text-white" />
                         </div>
                         <h1 className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-bold text-xl">
-                            RoomieVibes
+                            RoomMateC
                         </h1>
                     </Link>
 
