@@ -48,22 +48,22 @@ export function Footer() {
             <h4 className="mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
+                <a href="/discover" className="text-purple-200 hover:text-white transition-colors">
                   Find Roommates
                 </a>
               </li>
               <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
+                <a href="/rooms" className="text-purple-200 hover:text-white transition-colors">
                   Find Rooms
                 </a>
               </li>
               <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
+                <a href="/listings/create" className="text-purple-200 hover:text-white transition-colors">
                   Post Your Ad
                 </a>
               </li>
               <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
+                <a href="/success-stories" className="text-purple-200 hover:text-white transition-colors">
                   Success Stories
                 </a>
               </li>
@@ -75,22 +75,22 @@ export function Footer() {
             <h4 className="mb-4 text-white">Support</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
+                <a href="/help" className="text-purple-200 hover:text-white transition-colors">
                   Help Center
                 </a>
               </li>
               <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
+                <a href="/safety" className="text-purple-200 hover:text-white transition-colors">
                   Safety Tips
                 </a>
               </li>
               <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
+                <a href="/report-issue" className="text-purple-200 hover:text-white transition-colors">
                   Report Issue
                 </a>
               </li>
               <li>
-                <a href="#" className="text-purple-200 hover:text-white transition-colors">
+                <a href="/contact" className="text-purple-200 hover:text-white transition-colors">
                   Contact Us
                 </a>
               </li>
@@ -103,11 +103,19 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-purple-200">
                 <Mail className="size-4" />
-                <span>hello@roomievibes.com</span>
+                <span>info@aiclex.in</span>
               </li>
               <li className="flex items-center gap-2 text-purple-200">
                 <Phone className="size-4" />
-                <span>+91 98765 43210</span>
+                <span>+91 8449488090</span>
+              </li>
+              <li className="flex items-start gap-2 text-purple-200">
+                <span>📍</span>
+                <span className="text-sm">
+                  Aiclex Technologies,<br />
+                  Gaur City Mall, Sec 4,<br />
+                  Greater Noida, 201318
+                </span>
               </li>
             </ul>
             <div className="mt-4 p-3 bg-white/10 rounded-lg border border-white/20">
