@@ -47,8 +47,7 @@ export default function SuccessStoriesPage() {
                                 <ImageWithFallback
                                     src={story.image}
                                     alt={story.name}
-                                    fill
-                                    className="object-cover"
+                                    className="object-cover w-full h-full"
                                 />
                             </div>
                             <div className="relative">
