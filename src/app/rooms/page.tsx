@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import ListingCard from '@/components/listings/ListingCard';
-import { Listing } from '@/types'; // Assuming types exist, otherwise define or use any
+
 import axios from 'axios';
 import { Loader2 } from 'lucide-react';
 
