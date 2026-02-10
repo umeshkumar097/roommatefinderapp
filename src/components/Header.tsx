@@ -1,3 +1,5 @@
+"use client";
+
 import { Sparkles, MessageCircle, Bell, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/context/AuthContext';
