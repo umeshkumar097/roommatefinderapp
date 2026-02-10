@@ -1,0 +1,151 @@
+Using email: testuser_1770699186@example.com
+Registering...
+Note: Unnecessary use of -X or --request, POST is already inferred.
+* Host localhost:3000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:3000...
+* Connected to localhost (::1) port 3000
+> POST /api/auth/register HTTP/1.1
+> Host: localhost:3000
+> User-Agent: curl/8.7.1
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 92
+> 
+} [92 bytes data]
+* upload completely sent off: 92 bytes
+100    92    0     0  100    92      0     76  0:00:01  0:00:01 --:--:--    76< HTTP/1.1 500 Internal Server Error
+< vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+< content-type: application/json
+< Date: Tue, 10 Feb 2026 04:53:08 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+< Transfer-Encoding: chunked
+< 
+{ [44 bytes data]
+100   125    0    33  100    92     26     73  0:00:01  0:00:01 --:--:--   100
+* Connection #0 to host localhost left intact
+{"error":"Internal server error"}
+
+
+Logging in...
+Note: Unnecessary use of -X or --request, POST is already inferred.
+* Host localhost:3000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:3000...
+* Connected to localhost (::1) port 3000
+> POST /api/auth/login HTTP/1.1
+> Host: localhost:3000
+> User-Agent: curl/8.7.1
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 71
+> 
+} [71 bytes data]
+* upload completely sent off: 71 bytes
+< HTTP/1.1 500 Internal Server Error
+< vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+< content-type: application/json
+< Date: Tue, 10 Feb 2026 04:53:08 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+< Transfer-Encoding: chunked
+< 
+{ [44 bytes data]
+100   104    0    33  100    71     70    151 --:--:-- --:--:-- --:--:--   221
+* Connection #0 to host localhost left intact
+{"error":"Internal server error"}
+
+
+Checking Me...
+Note: Unnecessary use of -X or --request, GET is already inferred.
+* Host localhost:3000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:3000...
+* Connected to localhost (::1) port 3000
+> GET /api/auth/me HTTP/1.1
+> Host: localhost:3000
+> User-Agent: curl/8.7.1
+> Accept: */*
+> 
+* Request completely sent off
+< HTTP/1.1 200 OK
+< vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+< content-type: application/json
+< Date: Tue, 10 Feb 2026 04:53:08 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+< Transfer-Encoding: chunked
+< 
+{ [23 bytes data]
+100    13    0    13    0     0     66      0 --:--:-- --:--:-- --:--:--    66
+* Connection #0 to host localhost left intact
+{"user":null}
+
+
+Logging out...
+* Host localhost:3000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:3000...
+* Connected to localhost (::1) port 3000
+> POST /api/auth/logout HTTP/1.1
+> Host: localhost:3000
+> User-Agent: curl/8.7.1
+> Accept: */*
+> 
+* Request completely sent off
+< HTTP/1.1 200 OK
+< vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+< content-type: application/json
+* Added cookie token="" for domain localhost, path /, expire 1
+< set-cookie: token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT
+< Date: Tue, 10 Feb 2026 04:53:08 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+< Transfer-Encoding: chunked
+< 
+{ [48 bytes data]
+100    37    0    37    0     0    184      0 --:--:-- --:--:-- --:--:--   185
+* Connection #0 to host localhost left intact
+{"message":"Logged out successfully"}
+
+
+Checking Me (after logout)...
+Note: Unnecessary use of -X or --request, GET is already inferred.
+* Host localhost:3000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying [::1]:3000...
+* Connected to localhost (::1) port 3000
+> GET /api/auth/me HTTP/1.1
+> Host: localhost:3000
+> User-Agent: curl/8.7.1
+> Accept: */*
+> 
+* Request completely sent off
+< HTTP/1.1 200 OK
+< vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+< content-type: application/json
+< Date: Tue, 10 Feb 2026 04:53:09 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+< Transfer-Encoding: chunked
+< 
+{ [23 bytes data]
+100    13    0    13    0     0   1096      0 --:--:-- --:--:-- --:--:--  1181
+* Connection #0 to host localhost left intact
+{"user":null}
