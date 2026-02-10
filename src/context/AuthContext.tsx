@@ -15,6 +15,8 @@ interface User {
     gender?: string;
     dob?: string | Date;
     preferences?: any;
+    location?: string;
+    profession?: string;
 }
 
 interface AuthContextType {
