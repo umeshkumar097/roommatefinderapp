@@ -5,6 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { User, Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
+import FirebaseAuth from "@/components/auth/FirebaseAuth";
 
 export default function RegisterPage() {
     const { register } = useAuth();
@@ -98,6 +99,10 @@ export default function RegisterPage() {
                     {loading ? "Creating Account..." : "Sign Up & Vibe! 🎉"}
                 </button>
             </form>
+
+            <div className="mt-6">
+                <FirebaseAuth />
+            </div>
 
             <div className="mt-8 text-center">
                 <p className="text-gray-500 text-sm">

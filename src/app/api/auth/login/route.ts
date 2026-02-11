@@ -26,9 +26,9 @@ export async function POST(req: Request) {
             .where(eq(users.email, email))
             .limit(1);
 
-        if (!user) {
+        if (!user || !user.passwordHash) {
             return NextResponse.json(
-                { error: "Invalid credentials" },
+                { error: "Invalid credentials. If you signed up with Google or Phone, please login using that method." },
                 { status: 401 }
             );
         }

@@ -47,6 +47,8 @@
     "dotenv": "^17.2.4",
     "drizzle-orm": "^0.45.1",
     "embla-carousel-react": "^8.6.0",
+    "firebase": "^12.9.0",
+    "firebase-admin": "^13.6.1",
     "framer-motion": "^12.34.0",
     "h": "^1.0.0",
     "input-otp": "^1.4.2",

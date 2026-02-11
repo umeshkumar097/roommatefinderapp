@@ -73,7 +73,7 @@ export async function POST(req: Request) {
             mode: 'payment', // One-time payment for now (as per "1 month" descriptions imply) or 'subscription' if recurring
             success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/payment/cancel`,
-            customer_email: user.email,
+            customer_email: user.email || undefined,
             metadata: {
                 userId: user.id.toString(),
                 planType: plan,

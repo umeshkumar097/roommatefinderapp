@@ -4,9 +4,12 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
-interface User {
+import { auth } from "@/lib/firebase";
+import { signInWithPopup, signInWithPhoneNumber, RecaptchaVerifier, ConfirmationResult, GoogleAuthProvider } from "firebase/auth";
+
+export interface User {
     id: number;
-    email: string;
+    email: string | null;
     name: string;
     role: string;
     bio?: string;
@@ -17,6 +20,8 @@ interface User {
     preferences?: any;
     location?: string;
     profession?: string;
+    phoneNumber?: string;
+    firebaseUid?: string;
 }
 
 interface AuthContextType {
@@ -25,6 +30,9 @@ interface AuthContextType {
     login: (data: any) => Promise<void>;
     register: (data: any) => Promise<void>;
     logout: () => Promise<void>;
+    loginWithGoogle: () => Promise<void>;
+    loginWithPhone: (phoneNumber: string) => Promise<ConfirmationResult>;
+    verifyOtp: (confirmationResult: ConfirmationResult, code: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -64,7 +72,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         try {
             const { data } = await axios.post("/api/auth/register", userData);
             setUser(data.user);
-            router.push("/dashboard"); // Redirect to dashboard or onboarding
+            router.push("/dashboard");
         } catch (error) {
             throw error;
         }
@@ -72,7 +80,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const logout = async () => {
         try {
-            await axios.post("/api/auth/logout"); // Need to implement logout API to clear cookie
+            await axios.post("/api/auth/logout");
             setUser(null);
             router.push("/login");
         } catch (error) {
@@ -80,8 +88,54 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         }
     };
 
+    const loginWithGoogle = async () => {
+        try {
+            const googleProvider = new GoogleAuthProvider();
+            const result = await signInWithPopup(auth, googleProvider);
+            const token = await result.user.getIdToken();
+            await verifyBackendToken(token);
+        } catch (error) {
+            console.error("Google login failed", error);
+            throw error;
+        }
+    };
+
+    const loginWithPhone = async (phoneNumber: string) => {
+        try {
+            const recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+                'size': 'invisible',
+            });
+            return await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);
+        } catch (error) {
+            console.error("Phone login failed", error);
+            throw error;
+        }
+    };
+
+    const verifyOtp = async (confirmationResult: ConfirmationResult, code: string) => {
+        try {
+            const result = await confirmationResult.confirm(code);
+            const token = await result.user.getIdToken();
+            await verifyBackendToken(token);
+        } catch (error) {
+            console.error("OTP verification failed", error);
+            throw error;
+        }
+    };
+
+    const verifyBackendToken = async (token: string) => {
+        try {
+            const { data } = await axios.post("/api/auth/firebase", { token });
+            setUser(data.user);
+            router.push("/dashboard");
+        } catch (error) {
+            console.error("Backend token verification failed", error);
+            throw error;
+        }
+    };
+
     return (
-        <AuthContext.Provider value={{ user, isLoading, login, register, logout }}>
+        <AuthContext.Provider value={{ user, isLoading, login, register, logout, loginWithGoogle, loginWithPhone, verifyOtp }}>
             {children}
         </AuthContext.Provider>
     );

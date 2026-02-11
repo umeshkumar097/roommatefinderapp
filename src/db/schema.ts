@@ -3,8 +3,12 @@ import { pgTable, serial, text, timestamp, boolean, jsonb, integer, doublePrecis
 export const users = pgTable('users', {
     id: serial('id').primaryKey(),
     name: text('name').notNull(),
-    email: text('email').notNull().unique(),
-    passwordHash: text('password_hash').notNull(),
+    // Wait, better to keep email unique but allow nulls? Drizzle/Postgres allows multiple nulls in unique column? Yes.
+    // Making email nullable for Phone Auth users who haven't provided one yet.
+    email: text('email').unique(),
+    passwordHash: text('password_hash'), // Optional for Firebase users
+    firebaseUid: text('firebase_uid').unique(),
+    phoneNumber: text('phone_number').unique(),
     role: text('role').default('user').notNull(), // 'user', 'admin'
     bio: text('bio'),
     gender: text('gender'),
@@ -21,6 +25,7 @@ export const users = pgTable('users', {
     subscriptionStatus: text('subscription_status').default('free'), // 'active', 'inactive', 'past_due'
     subscriptionPlan: text('subscription_plan').default('free'), // 'free', 'premium'
     subscriptionId: text('subscription_id'),
+    location: text('location'), // Added to schema to match AuthContext
 
     // Roommate Finder Specific Fields
     budgetMin: integer('budget_min'),
