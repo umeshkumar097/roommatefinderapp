@@ -62,7 +62,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         try {
             const { data } = await axios.post("/api/auth/login", credentials);
             setUser(data.user);
-            router.push("/dashboard");
+            router.push("/");
         } catch (error) {
             throw error;
         }
@@ -72,7 +72,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         try {
             const { data } = await axios.post("/api/auth/register", userData);
             setUser(data.user);
-            router.push("/dashboard");
+            router.push("/");
         } catch (error) {
             throw error;
         }
@@ -127,7 +127,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         try {
             const { data } = await axios.post("/api/auth/firebase", { token });
             setUser(data.user);
-            router.push("/dashboard");
+            router.push("/");
         } catch (error) {
             console.error("Backend token verification failed", error);
             throw error;
