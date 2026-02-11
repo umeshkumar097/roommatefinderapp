@@ -48,7 +48,13 @@ export default async function LocationPage({ params }: Props) {
                 {cityListings.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {cityListings.map((listing) => (
-                            <ListingCard key={listing.id} listing={listing} />
+                            <ListingCard
+                                key={listing.id}
+                                listing={{
+                                    ...listing,
+                                    images: (listing.images as string[]) || [],
+                                }}
+                            />
                         ))}
                     </div>
                 ) : (
